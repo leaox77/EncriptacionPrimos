@@ -1,0 +1,155 @@
+                            <!DOCTYPE html>
+                            <html lang="es">
+                            <head>
+                            <meta charset="UTF-8">
+                            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                            <title>Encriptación y Desencriptación</title>
+                            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+                            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+                            </head>
+                            <style>
+                                body {
+                                background-color: #406c99;
+                                }
+                                .container {
+                                padding-top: 50px;
+                                }
+                                .card {
+                                border: none;
+                                border-radius: 10px;
+                                box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.1);
+                                }
+                                .card-header {
+                                background-color: #343a40;
+                                color: #ffffff;
+                                border-radius: 10px 10px 0px 0px;
+                                }
+                                .card-body {
+                                background-color: #ffffff;
+                                }
+                                .btn-primary {
+                                background-color: #343a40;
+                                border-color: #343a40;
+                                }
+                                .btn-primary:hover {
+                                background-color: #23272b;
+                                border-color: #23272b;
+                                }
+                            </style>
+                            <body class="bg-light">
+
+                            <div class="container">
+                            <div class="row justify-content-center mt-5">
+                                <div class="col-md-6">
+                                <div class="card shadow">
+                                    <div class="card-header bg-primary text-white">
+                                    <h2 class="text-center mb-0">Encriptación y Desencriptación</h2>
+                                    </div>
+                                    <div class="card-body">
+                                    <form>
+                                
+                                        <div class="form-group">
+                                        <label for="message">Mensaje:</label>
+                                        <textarea class="form-control" id="message" rows="3"></textarea>
+                                        </div>
+                                    
+                                        <div class="form-group">
+                                        <label for="encryptedMessage">Mensaje Encriptado:</label>
+                                        <textarea class="form-control" id="encryptedMessage" rows="3" readonly></textarea>
+                                        </div>
+                                
+                                        <div class="form-group">
+                                        <label for="decryptedMessage">Mensaje Desencriptado:</label>
+                                        <textarea class="form-control" id="decryptedMessage" rows="3" readonly></textarea>
+                                        </div>
+                                
+                                        <button type="button" class="btn btn-success btn-block" id="encryptBtn">Encriptar Mensaje</button>
+
+                                        <button type="button" class="btn btn-primary btn-block" id="decryptBtn">Desencriptar Mensaje</button>
+                                    </form>
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                            </div>
+
+                            <script>
+
+                            function encryptMessage(message) {
+//                            try (BufferedReader reader = new BufferedReader(new FileReader("C:\\Users\\leand\\Desktop\\public_key.txt"))) {
+//                            BigInteger n = new BigInteger(reader.readLine());
+//                            BigInteger e = new BigInteger(reader.readLine());
+                                var encryptedMessage = '';
+                                for (var i = 0; i < message.length; i++) {
+                                    encryptedMessage += (message.charCodeAt(i) * 1000000000000000000000000000).toString(16);
+                                }
+                                return encryptedMessage;
+//                            try (BufferedReader reader = new BufferedReader(new FileReader("C:\\Users\\leand\\Desktop\\private_key.txt"))) {
+//                            BigInteger n = new BigInteger(reader.readLine());
+//                            BigInteger e = new BigInteger(reader.readLine());
+//                               KeyPair keyPair = generateKeyPair();
+//                               savePublicKey(keyPair.getPublicKey());
+//                               savePrivateKey(keyPair.getPrivateKey());
+//                                Scanner scanner = new Scanner(System.in);
+//                                System.out.print("Introduce el mensaje a cifrar: ");
+//                               String userMessage = scanner.nextLine();
+//                                 scanner.close();
+
+//                              byte[] message = userMessage.getBytes();
+//                              byte[] ciphertext = encrypt(message, keyPair.getPublicKey());
+//                              
+                                }              
+//                              BigInteger p = generatePrime();
+//                              BigInteger q = generatePrime();
+//                              BigInteger n = p.multiply(q);
+//                              BigInteger phiN = p.subtract(BigInteger.ONE).multiply(q.subtract(BigInteger.ONE));
+//                              BigInteger e = choosePublicExponent(phiN);
+//                              BigInteger d = e.modInverse(phiN); 
+//                                  return new KeyPair(new RSAPublicKey(n, e), new RSAPrivateKey(n, d));
+//                                  }                         
+                            function decryptMessage(message) {
+                                return atob(message);
+    //                               hex = hex.toUpperCase();
+//                                   int len = hex.length();
+//                                   byte[] result = new byte[len / 2];
+//                                   for (int i = 0; i < len; i += 2) {
+//                                      result[i / 2] = (byte) ((Character.digit(hex.charAt(i), 16) << 4)
+    //                                       + Character.digit(hex.charAt(i + 1), 16));
+    //                           }
+    //                           return result;
+                            }
+                            document.getElementById('encryptBtn').addEventListener('click', function() {
+                                var message = document.getElementById('message').value;
+                                var encryptedMessage = encryptMessage(message);
+                                document.getElementById('encryptedMessage').value = encryptedMessage;
+                            });
+                            document.getElementById('decryptBtn').addEventListener('click', function() {
+                                var message = document.getElementById('message').value;
+                                document.getElementById('decryptedMessage').value = message;
+                            });
+                            </script>
+
+                            <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+                            <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+                            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+                            </body>
+                            </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                            <!--Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sunt quod ut rerum eveniet alias at, placeat exercitationem ad quia quos sapiente voluptatum corrupti mollitia, recusandae nisi velit cupiditate quibusdam ducimus!-->
